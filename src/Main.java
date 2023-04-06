@@ -27,6 +27,7 @@ public class Main {
                    System.out.println(Task6());
                    break;
                case 7:
+                   Task7();
                    break;
                case 8:
                    break;
@@ -117,4 +118,28 @@ public class Main {
         }
         return x;
     }
+    public static void Task7(){
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        int[] array = new int[n];
+        for (int i = 0; i < n; i++){
+            array[i] = scan.nextInt();
+        }
+        Reverse(array, 0, n-1);
+        for (int i = 0; i < n; i++){
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
+    }
+    public static void Reverse(int[] array, int start, int end){
+        if (start <= end){
+            int temp = array[start];
+            array[start] = array[end];
+            array[end] = temp;
+            Reverse(array, start+1, end-1);
+        }
+    }
 }
+
+
+
