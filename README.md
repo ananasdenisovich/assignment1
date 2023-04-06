@@ -121,3 +121,19 @@ public static void Reverse(int[] array, int start, int end){
        }
     }
 ```
+•	PROBLEM 8: check if String s consists only of digits
+User enters String s with Scanner.
+Code indexes every char with charAt(). Firstly, it checks the first character of a String with a charAt() and isDigit() functions that are already in java. Secondly, it checks every next character with a substring.
+In the end, method returns “Yes” or “No” answer.
+Code:
+```
+public static String isDigit(String s){
+
+        if (!Character.isDigit(s.charAt(0)))
+            return "no";
+        if (Character.isDigit(s.charAt(0))){
+            return "yes";
+        }
+        return isDigit(s.substring(1));
+    }
+```
