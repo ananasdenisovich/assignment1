@@ -30,6 +30,7 @@ public class Main {
                    Task7();
                    break;
                case 8:
+                   System.out.println(Task8());
                    break;
                case 9:
                    break;
@@ -138,6 +139,20 @@ public class Main {
             array[end] = temp;
             Reverse(array, start+1, end-1);
         }
+    }
+    public static String Task8(){
+        Scanner scan = new Scanner(System.in);
+        String s = scan.next();
+        return isDigit(s);
+    }
+    public static String isDigit(String s){
+
+        if (!Character.isDigit(s.charAt(0)))
+            return "no";
+        if (Character.isDigit(s.charAt(0))){
+            return "yes";
+        }
+        return isDigit(s.substring(1));
     }
 }
 
