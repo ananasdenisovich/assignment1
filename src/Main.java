@@ -1,5 +1,5 @@
 import java.util.Scanner;
-// n this commit, I am thinking if it is okay that I have only 7 commits because I pushed many problems together
+//In this commit, I hope you take in consideration that I didn't see criteria at first
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hi, teacher!");
@@ -9,16 +9,16 @@ public class Main {
         problemNum = enterProblem(problemNum);
         do{
             switch (problemNum) {
-                case 1 -> Task1();
-                case 2 -> Task2();
-                case 3 -> Task3();
-                case 4 -> Task4();
-                case 5 -> Task5();
-                case 6 -> Task6();
-                case 7 -> Task7();
-                case 8 -> System.out.println(Task8());
-                case 9 -> Task9();
-                case 10 -> Task10();
+                case 1 -> Problem1();
+                case 2 -> Problem2();
+                case 3 -> Problem3();
+                case 4 -> Problem4();
+                case 5 -> Problem5();
+                case 6 -> Problem6();
+                case 7 -> Problem7();
+                case 8 -> System.out.println(Problem8());
+                case 9 -> Problem9();
+                case 10 -> Problem10();
             }
             System.out.println("Which problem should be next?");
             problemNum = scan.nextInt();
@@ -39,7 +39,7 @@ public class Main {
         }
         return problemNum;
     }
-    public static void Task1(){
+    public static void Problem1(){
         int[] array = {10, 1, 32, 3, 45};
         for (int i = 0; i < 5; i++){
             if (array[0] > array[i]){
@@ -48,7 +48,7 @@ public class Main {
         }
         System.out.println("min = " + array[0]);
     }
-    public static void Task2(){
+    public static void Problem2(){
         int[] array = {3, 2, 4, 1};
         float x = 0;
         for(int i = 0; i < 4; i++){
@@ -57,7 +57,7 @@ public class Main {
         x /= 4;
         System.out.println("average = " + x);
     }
-    public static void Task3(){
+    public static void Problem3(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter a number n: ");
         int n = scan.nextInt();
@@ -75,7 +75,7 @@ public class Main {
         }
         System.out.println(n + " is " + answer);
     }
-    public static void Task4(){
+    public static void Problem4(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter a number n: ");
         int n = scan.nextInt();
@@ -88,7 +88,7 @@ public class Main {
         }
         return x;
     }
-    public static void Task5(){
+    public static void Problem5(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter a number n: ");
         int n = scan.nextInt();
@@ -103,7 +103,7 @@ public class Main {
         }
         return x;
     }
-    public static void Task6(){
+    public static void Problem6(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter a number a: ");
         int a = scan.nextInt();
@@ -118,7 +118,7 @@ public class Main {
         }
         return x;
     }
-    public static void Task7(){
+    public static void Problem7(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter a number n: ");
         int n = scan.nextInt();
@@ -142,7 +142,7 @@ public class Main {
             Reverse(array, start+1, end-1);
         }
     }
-    public static String Task8(){
+    public static String Problem8(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter a String s: ");
         String s = scan.next();
@@ -158,7 +158,7 @@ public class Main {
         }
         return isDigit(s.substring(1));
     }
-    public static void Task9(){
+    public static void Problem9(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter a number a: ");
         int a = scan.nextInt();
@@ -166,7 +166,7 @@ public class Main {
         int b = scan.nextInt();
         System.out.println("Binomial Coefficient of a and b is " + Rec(a)/(Rec(b)*Rec(a-b)));
     }
-    public static void Task10(){
+    public static void Problem10(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter a number a: ");
         int a = scan.nextInt();
