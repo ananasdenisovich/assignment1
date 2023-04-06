@@ -1,5 +1,4 @@
 import java.util.Scanner;
-//In this commit, I hope you take in consideration that I didn't see criteria at first
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hi, teacher!");
