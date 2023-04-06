@@ -137,3 +137,53 @@ public static String isDigit(String s){
         return isDigit(s.substring(1));
     }
 ```
+•	PROBLEM 9: find binomial coefficient of n and k
+User enters n and k numbers with Scanner.
+Method for factorials from Problem 4 finds n!, k! and (n-k)!. Ten code puts their values to the formula of Binomial Coefficient: n!/(k!* (n-k)!).
+In the end, method returns the value of binomial coefficient.
+Code:
+```
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        System.out.println(Rec(a)/(Rec(b)*Rec(a-b)));
+    }
+    public static int Rec(int n){
+        int x = 1;
+        if (n >= 1){
+            x = n * Rec(n-1);
+        } else{
+            x = 1;
+        }
+        return x;
+    }
+}
+```
+•	PROBLEM 10: find GCD of a and b
+User enters a and b numbers with Scanner.
+Firstly, code makes sure that a is bigger than b and switches their values if no. 
+Secondly, by the Euclidean Algorithm, code finds x aka remainder of the division a/b .
+Thirdly, using recursion code keeps finding remainders of b/x and dividing new b’s on them till there is no remainder. Only then, current b can be a greatest common divisor. Ad for, if-else statement, its not letting final x to be 0.
+In the end, method returns x aka final b.
+Code:
+```
+public static int GCD(int a, int b){
+        if (a < b){
+            int temp = a;
+            a = b;
+            b = temp;
+        }
+        int x = a % b;
+        if (x > 1){
+            x = GCD(b, x);
+        } else if (x == 0){
+            x = b;
+        }
+
+        return x;
+    }
+```
