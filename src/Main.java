@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+// n this commit, I am thinking if it is okay that I have only 7 commits because I pushed many problems together
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hi, teacher!");
