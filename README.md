@@ -1,4 +1,5 @@
 # assignment1
+Hello! Here is the documentation on my assignment 1!
 •	First, I added a switch case in a do-while loop, so that user can check any problem many times. The “enterProblem()” checks if inputted problem number is within a range 0-10 by throwing exception with try-catch:
 1.	Try checks, if input is not less than 0 and not more than 10
 2.	Catch ouputs the message about wrong input, allows user to write another problem number and then by using recursion checks new input again
