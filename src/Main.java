@@ -33,6 +33,7 @@ public class Main {
                    System.out.println(Task8());
                    break;
                case 9:
+                   System.out.println(Task9());
                    break;
                case 10:
                    break;
@@ -153,6 +154,12 @@ public class Main {
             return "yes";
         }
         return isDigit(s.substring(1));
+    }
+    public static int Task9(){
+        Scanner scan = new Scanner(System.in);
+        int a = scan.nextInt();
+        int b = scan.nextInt();
+        return Rec(a)/(Rec(b)*Rec(a-b));
     }
 }
 
