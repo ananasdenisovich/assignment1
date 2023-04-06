@@ -91,3 +91,33 @@ public static int Fib(int n){
         return x;
     }
 ```
+•	PROBLEM 6: find nth power of a
+User enters a and n numbers with Scanner.
+Code multiplies a by itself as many times as we need to minus 1 from n until n = 1, which is how Powers work.If n=0 from the beginning, code will putput "1", because 0th power of any number is 1. 
+In the end, method returns x as nth power of a.
+Code:
+```
+public static int Power(int a, int n){
+        int x = 1;
+        if (n >= 1){
+            x = a * Power(a, n-1);
+        } else {
+            x = 1;
+        }
+        return x;
+    }
+```
+•	PROBLEM 7: reverse an array
+User enters n number with Scanner and n elements of array using Scanner and for loop.
+At first, code compares first and last index of array and switches them with additional temp variable. Then, with recursion switches next after the first and previous before the last elements, continuing till reaches the center. Code will stop after reaching it, because the condition (start <= end) is met.
+In the end, method returns a list of reversed numbers.
+```
+public static void Reverse(int[] array, int start, int end){
+       if (start <= end){
+           int temp = array[start];
+           array[start] = array[end];
+           array[end] = temp;
+           Reverse(array, start+1, end-1);
+       }
+    }
+```
