@@ -6,6 +6,7 @@ public class Main {
         System.out.println("Which problem do you want to check? (choose between 1-10, write '0' if you are done)");
         Scanner scan = new Scanner(System.in);
         int problemNum = scan.nextInt();
+        problemNum = enterProblem(problemNum);
         do{
             switch (problemNum) {
                 case 1 -> Task1();
@@ -21,8 +22,22 @@ public class Main {
             }
             System.out.println("Which problem should be next?");
             problemNum = scan.nextInt();
+            problemNum = enterProblem(problemNum);
         } while (problemNum != 0);
         System.out.println("Thanks for your attention!");
+    }
+    public static int enterProblem(int problemNum){
+        Scanner scan = new Scanner(System.in);
+        try {
+            if (problemNum < 0 || problemNum > 10){
+                throw new Exception("Enter numbers from 1 to 10!");
+            }
+        } catch (Exception e){
+            System.out.println(e);
+            problemNum = scan.nextInt();
+            enterProblem(problemNum);
+        }
+        return problemNum;
     }
     public static void Task1(){
         int[] array = {10, 1, 32, 3, 45};
