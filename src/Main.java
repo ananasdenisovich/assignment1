@@ -8,16 +8,54 @@ public class Main {
         problemNum = enterProblem(problemNum);
         do{
             switch (problemNum) {
-                case 1 -> Problem1();
-                case 2 -> Problem2();
-                case 3 -> Problem3();
-                case 4 -> Problem4();
-                case 5 -> Problem5();
-                case 6 -> Problem6();
-                case 7 -> Problem7();
-                case 8 -> System.out.println(Problem8());
-                case 9 -> Problem9();
-                case 10 -> Problem10();
+                case 1 -> findMin();
+                case 2 -> findAvg();
+                case 3 -> checkPrime();
+                case 4 -> {
+                    System.out.print("Enter a number n: ");
+                    int n = scan.nextInt();
+                    System.out.println(n + "! = " + calculateFactorial(n));
+                }
+                case 5 -> {System.out.print("Enter a number n: ");
+                    int n = scan.nextInt();
+                    System.out.println("nth Fibonacci number is " + findFibonacci(n));}
+                case 6 -> {System.out.print("Enter a number a: ");
+                    int a = scan.nextInt();
+                    System.out.print("Enter a number n: ");
+                    int n = scan.nextInt();
+                    System.out.println("nth power of a is " + calculatePower(a, n));}
+                case 7 -> {
+                    System.out.print("Enter a number n: ");
+                    int n = scan.nextInt();
+                    int[] array = new int[n];
+                    System.out.print("Enter n elements of array: ");
+                    for (int i = 0; i < n; i++){
+                        array[i] = scan.nextInt();
+                    }
+                    reverseArray(array, 0, n-1);
+                    System.out.println("Reversed array: ");
+                    for (int i = 0; i < n; i++){
+                        System.out.print(array[i] + " ");
+                    }
+                    System.out.println();
+                }
+                case 8 -> {
+                    System.out.print("Enter a String s: ");
+                    String s = scan.next();
+                    System.out.println("Is s fully from digits?");
+                    System.out.println(isDigit(s));
+                }
+                case 9 -> {System.out.print("Enter a number a: ");
+                    int a = scan.nextInt();
+                    System.out.print("Enter a number b: ");
+                    int b = scan.nextInt();
+                    System.out.println("Binomial Coefficient of a and b is " + calculateFactorial(a)/(calculateFactorial(b)*calculateFactorial(a-b)));
+                }
+                case 10 -> {System.out.print("Enter a number a: ");
+                    int a = scan.nextInt();
+                    System.out.print("Enter a number b: ");
+                    int b = scan.nextInt();
+                    System.out.println("GCD of a and b is " + findGCD(a, b));}
             }
             System.out.println("Which problem should be next?");
             problemNum = scan.nextInt();
@@ -38,7 +76,7 @@ public class Main {
         }
         return problemNum;
     }
-    public static void Problem1(){
+    public static void findMin(){
         int[] array = {10, 1, 32, 3, 45};
         for (int i = 0; i < 5; i++){
             if (array[0] > array[i]){
@@ -47,7 +85,7 @@ public class Main {
         }
         System.out.println("min = " + array[0]);
     }
-    public static void Problem2(){
+    public static void findAvg(){
         int[] array = {3, 2, 4, 1};
         float x = 0;
         for(int i = 0; i < 4; i++){
@@ -56,7 +94,7 @@ public class Main {
         x /= 4;
         System.out.println("average = " + x);
     }
-    public static void Problem3(){
+    public static void checkPrime(){
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter a number n: ");
         int n = scan.nextInt();
@@ -74,79 +112,36 @@ public class Main {
         }
         System.out.println(n + " is " + answer);
     }
-    public static void Problem4(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter a number n: ");
-        int n = scan.nextInt();
-        System.out.println(n + "! = " + Rec(n));
-    }
-    public static int Rec(int n){
+    public static int calculateFactorial(int n){
         int x = 1;
         if (n >= 1){
-            x = n * Rec(n-1);
+            x = n * calculateFactorial(n-1);
         }
         return x;
     }
-    public static void Problem5(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter a number n: ");
-        int n = scan.nextInt();
-        System.out.println("nth Fibonacci number is " + Fib(n));
-    }
-    public static int Fib(int n){
+    public static int findFibonacci(int n){
         int x;
         if (n>2){
-            x = Fib(n-1) + Fib(n-2);
+            x = findFibonacci(n-1) + findFibonacci(n-2);
         } else {
             x = 1;
         }
         return x;
     }
-    public static void Problem6(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter a number a: ");
-        int a = scan.nextInt();
-        System.out.print("Enter a number n: ");
-        int n = scan.nextInt();
-        System.out.println("nth power of a is " + Power(a, n));
-    }
-    public static int Power(int a, int n){
+    public static int calculatePower(int a, int n){
         int x = 1;
         if (n >= 1){
-            x = a * Power(a, n-1);
+            x = a * calculatePower(a, n-1);
         }
         return x;
     }
-    public static void Problem7(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter a number n: ");
-        int n = scan.nextInt();
-        int[] array = new int[n];
-        System.out.print("Enter n elements of array: ");
-        for (int i = 0; i < n; i++){
-            array[i] = scan.nextInt();
-        }
-        Reverse(array, 0, n-1);
-        System.out.println("Reversed array: ");
-        for (int i = 0; i < n; i++){
-            System.out.print(array[i] + " ");
-        }
-        System.out.println();
-    }
-    public static void Reverse(int[] array, int start, int end){
+    public static void reverseArray(int[] array, int start, int end){
         if (start <= end){
             int temp = array[start];
             array[start] = array[end];
             array[end] = temp;
-            Reverse(array, start+1, end-1);
+            reverseArray(array, start+1, end-1);
         }
-    }
-    public static String Problem8(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter a String s: ");
-        String s = scan.next();
-        System.out.println("Is s fully from digits?");
-        return isDigit(s);
     }
     public static String isDigit(String s){
 
@@ -157,23 +152,8 @@ public class Main {
         }
         return isDigit(s.substring(1));
     }
-    public static void Problem9(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter a number a: ");
-        int a = scan.nextInt();
-        System.out.print("Enter a number b: ");
-        int b = scan.nextInt();
-        System.out.println("Binomial Coefficient of a and b is " + Rec(a)/(Rec(b)*Rec(a-b)));
-    }
-    public static void Problem10(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter a number a: ");
-        int a = scan.nextInt();
-        System.out.print("Enter a number b: ");
-        int b = scan.nextInt();
-        System.out.println("GCD of a and b is " + GCD(a, b));
-    }
-    public static int GCD(int a, int b){
+
+    public static int findGCD(int a, int b){
         if (a < b){
             int temp = a;
             a = b;
@@ -181,7 +161,7 @@ public class Main {
         }
         int x = a % b;
         if (x > 1){
-            x = GCD(b, x);
+            x = findGCD(b, x);
         } else if (x == 0){
             x = b;
         }
